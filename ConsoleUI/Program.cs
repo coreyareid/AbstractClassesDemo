@@ -10,39 +10,68 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo follow all comments!! 
-             */
-
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
+            // List
+            List<Vehicle> vehicleList = new List<Vehicle>();
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
 
-            // Create a list of Vehicle called vehicles
+            // Instance 1
+            Car honda = new Car()
+            {
+                Make = "Honda",
+                Model = "Civic",
+                Year = 2019,
+                HasTrunk = true,
+                AmountOfDoors = " 4 Door"
+            };
 
-            /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * - new it up as one of each derived class
-             * Set the properties with object initializer syntax
-             */
+            // Instance 2
+            Motorcycle indian = new Motorcycle()
+            {
+                Make = "Indian",
+                Model = "Monster 699",
+                Year = 2014,
+                SportsBike = true,
+                Twoseater = false
+            };
 
-            /*
-             * Add the 4 vehicles to the list
-             * Using a foreach loop iterate over each of the properties
-             */
+            // Instance 3
+            Vehicle truck = new Car()
+            {
+                Make = "Chevy",
+                Model = " 4 X 4",
+                Year = 2003,
+                HasTrunk = false,
+                AmountOfDoors = "2 DOOR"
+            };
+
+            // Instance 4
+            Vehicle fourWheeler = new Car()
+            {
+                Make = "Honda",
+                Model = "N/A",
+                Year = 2022,
+                HasTrunk = false,
+                AmountOfDoors = "None"
+            };
+
+
+            // Adds Instances to list
+            vehicleList.Add(honda);
+            vehicleList.Add(indian);
+            vehicleList.Add(truck);
+            vehicleList.Add(fourWheeler);
+
+
+            // foreach loop which list information of the instances
+            Console.WriteLine("--------------------------------------------");
+            foreach (var instance in vehicleList)
+            {
+                Console.WriteLine($"Make: {instance.Make}, Model: {instance.Model}, Year: {instance.Year}.");
+                instance.DriveAbstract();
+            }
+            Console.WriteLine("--------------------------------------------");
 
             // Call each of the drive methods for one car and one motorcycle
 
